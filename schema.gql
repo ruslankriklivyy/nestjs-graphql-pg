@@ -1,0 +1,48 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @upper on FIELD_DEFINITION
+
+type Subscription {
+  id: ID!
+  title: String!
+  price: Float!
+  hexColor: String!
+}
+
+type DeletedCount {
+  deletedCount: Int!
+}
+
+type Query {
+  subscriptions(limit: Int = 0): [Subscription!]!
+  subscription(id: ID!): Subscription!
+}
+
+type Mutation {
+  addSubscription(newSubscriptionInput: NewSubscriptionInput!): Subscription!
+  updateSubscription(updateSubscriptionInput: UpdateSubscriptionInput!): Subscription!
+  deleteSubscription(deleteSubscriptionInput: DeleteSubscriptionInput!): DeletedCount!
+}
+
+input NewSubscriptionInput {
+  title: String!
+  price: Float!
+  hexColor: String!
+}
+
+input UpdateSubscriptionInput {
+  id: String!
+  update: UpdateSubscription!
+}
+
+input UpdateSubscription {
+  title: String
+  price: Float
+  hexColor: String
+}
+
+input DeleteSubscriptionInput {
+  id: String!
+}
